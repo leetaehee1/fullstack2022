@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" defer>
+
+        // source from
+    //https://developers.google.com/chart/interactive/docs/gallery/piechart
+    var taskhour = 1;
+    var options = {
+          title: 'My Daily Activities'
+        };
+
+        var dynamicdata1 = [['Task', 'Hours per Day'],
+            ['Work',     11],
+            ['Eat',      2],
+            ['Commute',  2],
+            ['Watch TV', 2],
+            ['Sleep',    7]];
+
+
+      function pChart(){
+
+
+        chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        console.log(taskhour);
+        dynamicdata1[2][1] = taskhour;
+        taskhour = taskhour + 1;
+        if (taskhour > 30) taskhour = 1;
+
+        data = google.visualization.arrayToDataTable(dynamicdata1);
+        // var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        // var options = {
+        //   title: 'My Daily Activities'
+        // };
+        chart.draw(data, options);
+
+      }
+      window.onload = function(){
+        google.charts.load('current', {'packages':['corechart']});
+        //google.charts.setOnLoadCallback(pChart);
+
+        taskhour = 1;
+        setInterval(pChart, 1000)
+    }
+    </script>
+  </head>
+  <body>
+    <h1>이태희 파이차트</h1>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
