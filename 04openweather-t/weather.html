@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="weather.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="container w-75 mt-5 p-5 shadow text-center bg-warning text-dark">
-        <H2>Current Weather in Seoul, Korea</H2>
+        <H2>Current Weather in </H2>
+        <h2 id="citycr"></h2>
         <hr>
         <div class="row bg-success p-5 rounded-circle">
             <div class="col-5">
@@ -24,6 +25,10 @@
             </div>
         </div>
         </div>
-        <script src="weather.js"></script>
+        <div class="input">
+            <input type="text" name="" id="city" placeholder="도시이름 입력"/>
+            <input type="button" value="날씨검색" id="go" />
+            <input type="text" id="cr">
+        </div>
 </body>
 </html>
